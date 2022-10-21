@@ -16,6 +16,7 @@
 
 package com.google.samples.apps.sunflower.plantdetail
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.text.method.LinkMovementMethod
 import android.widget.TextView
 import androidx.compose.foundation.layout.Column
@@ -39,6 +40,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
+import com.google.android.material.composethemeadapter.MdcTheme
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.data.Plant
 import com.google.samples.apps.sunflower.viewmodels.PlantDetailViewModel
@@ -74,7 +76,13 @@ private fun PlantDetailContent(plant: Plant, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun PlantDetailContentPreview() {
-    MaterialTheme { PlantDetailContent(plant = plant) }
+    MdcTheme { PlantDetailContent(plant = plant) }
+}
+
+@Preview(uiMode = UI_MODE_NIGHT_YES)
+@Composable
+private fun PlantDetailContentDarkPreview() {
+    MdcTheme { PlantDetailContent(plant = plant) }
 }
 
 @Composable
@@ -92,7 +100,7 @@ private fun PlantName(name: String, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun PlantNamePreview() {
-    MaterialTheme { PlantName(plant.name) }
+    MdcTheme { PlantName(plant.name) }
 }
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -126,7 +134,7 @@ private fun PlantWatering(wateringInterval: Int, modifier: Modifier = Modifier) 
 @Preview
 @Composable
 private fun PlantWateringPreview() {
-    MaterialTheme { PlantWatering(plant.wateringInterval) }
+    MdcTheme { PlantWatering(plant.wateringInterval) }
 }
 
 @Composable
@@ -150,5 +158,5 @@ private fun PlantDescription(description: String) {
 @Preview
 @Composable
 private fun PlantDescriptionPreview() {
-    MaterialTheme { PlantDescription(plant.description) }
+    MdcTheme { PlantDescription(plant.description) }
 }
